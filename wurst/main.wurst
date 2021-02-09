@@ -1,0 +1,28 @@
+package main
+
+import Frame
+
+
+init
+    BlzLoadTOCFile("path.toc")
+    let bg = new Frame().newBackPackBackground()
+    bg
+    ..setPoint(FRAMEPOINT_CENTER, bg.getParent(), center, 0.01, 0.01)
+    ..show()
+
+    let entrance = new Frame().newBackPackButton()
+    entrance
+    ..setPoint(FRAMEPOINT_CENTER, entrance.getParent(), center, 0.04, 0.04)
+    ..show()
+
+    let exitbutton = new Frame().newExitButton()
+    exitbutton
+    ..setPoint(FRAMEPOINT_CENTER, exitbutton.getParent(), center, 0.3, 0.15)
+    ..show()
+
+    
+
+        
+    
+    
+    

@@ -1,0 +1,20 @@
+---
+projectName: MyWurstProject
+buildMapData:
+  name: MyMapName
+  fileName: MyMapFile
+  author: patho
+  scenarioData:
+    description: version 1.0 only some simple things
+    suggestedPlayers: DefaultSuggestedPlayers
+  players:
+  - id: 0
+    name: enigma
+    race: HUMAN 
+    controller: USER
+    fixedStartLoc: false
+  - id: 1
+    name: patho
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false

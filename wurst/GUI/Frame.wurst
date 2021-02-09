@@ -1,0 +1,27 @@
+package Frame
+
+public constant framepointtype topleft                   = ConvertFramePointType(0)
+public constant framepointtype top                       = ConvertFramePointType(1)
+public constant framepointtype topright                  = ConvertFramePointType(2)
+public constant framepointtype left                      = ConvertFramePointType(3)
+public constant framepointtype center                    = ConvertFramePointType(4)
+public constant framepointtype right                     = ConvertFramePointType(5)
+public constant framepointtype bottomleft                = ConvertFramePointType(6)
+public constant framepointtype bottom                    = ConvertFramePointType(7)
+public constant framepointtype bottomright               = ConvertFramePointType(8)
+public constant originframetype gameUI                   = ConvertOriginFrameType(0)
+
+public class Frame
+    private framehandle instance
+    
+    function newBackPackBackground() returns framehandle
+        instance = BlzCreateFrame("BackPack_Background", BlzGetOriginFrame(gameUI, 0), 0, 0)
+        return instance
+    function newBackPackButton() returns framehandle
+        instance = BlzCreateFrame("BP_Button", BlzGetOriginFrame(gameUI,0),0,0)
+        return instance
+    function newExitButton() returns framehandle
+        instance = BlzCreateFrame("Exit_Button", BlzGetOriginFrame(gameUI,0),0,0)
+        return instance  
+  
+    
