@@ -1,26 +1,47 @@
 package main
 
 import Frame
-
+import Assets
 
 init
     BlzLoadTOCFile("path.toc")
-    let bg = new Frame().newBackPackBackground()
+    let bp = new Backpack()
+    bp.newBackPackBackground()
+    let bg = playerToBGMap.get(players[0])
     bg
     ..setPoint(FRAMEPOINT_CENTER, bg.getParent(), center, 0.01, 0.01)
-    ..show()
-
-    let entrance = new Frame().newBackPackButton()
+    
+    bp.newBackPackButton()
+    let entrance = playerToEntranceMap.get(players[0])
     entrance
     ..setPoint(FRAMEPOINT_CENTER, entrance.getParent(), center, 0.04, 0.04)
-    ..show()
+    ..hide()
 
-    let exitbutton = new Frame().newExitButton()
-    exitbutton
-    ..setPoint(FRAMEPOINT_CENTER, exitbutton.getParent(), center, 0.3, 0.15)
-    ..show()
-
+    let openBackpack = bp.newFrameTrigger()
+    BlzTriggerRegisterFrameEvent(openBackpack, entrance, click)
+    openBackpack.addAction() ->
+        BlzGetTriggerFrame()
+        .disable()
+        playerToBGMap.get(GetTriggerPlayer()).setVisible(GetTriggerPlayer(), true)
     
+    let exitbutton = bp.newExitButton()
+    let exitBackpack = bp.newFrameTrigger()
+    
+    BlzTriggerRegisterFrameEvent(exitBackpack, exitbutton, click)
+    exitBackpack.addAction() ->
+        playerToEntranceMap.get(GetTriggerPlayer()).enable()
+        playerToBGMap.get(GetTriggerPlayer()).setVisible(GetTriggerPlayer(), false)
+    exitbutton
+    ..setParent(bg)
+    ..setPoint(FRAMEPOINT_CENTER, exitbutton.getParent(), center, 0.3, 0.15)
+    ..hide()
+    let itemFrame = bp.newItemFrame()
+    itemFrame
+    ..disable()
+    ..setPoint(FRAMEPOINT_CENTER, itemFrame.getParent(), center)
+    .getChild(0)
+    ..setTexture(Icons.bTNGenericHumanBuilding, 0, true)
+
 
         
     

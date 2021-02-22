@@ -17,7 +17,7 @@ Frame "BACKDROP" "BackPack_Background"
     Height 0.3125,
 
     
-    BackdropBackground "backpack_background.blp",
+    BackdropBackground "UI\Widgets\EscMenu\Human\human-options-menu-border.blp",
     BackdropBlendAll,
 }
 
@@ -237,8 +237,8 @@ Frame "BACKDROP" "Demo_TipsBck"
 //退出按钮模板
 Frame "BUTTON" "Exit_Button"
 {
-    Width 0.04,
-    Height 0.04,
+    Width 0.02,
+    Height 0.02,
     //设置样式 悬停高亮                 可获取鼠标焦点 HIGHLTGHTONFOCUS
 	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
 
@@ -393,5 +393,33 @@ Frame "BUTTON" "nextPage_Button"
         HighlightColor 0.0 0.0 1.0 0.1,
         HighlightType "SHADE",*/
     }
+
+}
+
+//设置背包格子
+Frame "BUTTON" "Item_Frame"
+{
+    Width 0.4,
+    Height 0.4,
+    //设置样式 悬停高亮                 可获取鼠标焦点 HIGHLTGHTONFOCUS
+	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+
+    //设置正常状态背景
+    ControlBackdrop "Exit_ButtonBack",
+    Frame "BACKDROP" "Exit_ButtonBack"
+    {
+        BackdropBackground  "backpack_exit_button_normal.blp",
+        BackdropBlendAll,
+        BackdropEdgeFile  "UI\Widgets\BattleNet\bnet-inputbox-border.blp",
+    }
+    //设置禁用状态下背景
+    ControlDisabledBackdrop "Exit_ButtonDisBack",
+    Frame "BACKDROP" "Exit_ButtonDisBack" 
+    {
+        BackdropBackground  "ReplaceableTextures\CommandButtonsDisabled\DIShuman-inventory-slotfiller.blp",
+        BackdropBlendAll,
+        BackdropEdgeFile  "biankuang.blp",
+    }
+    
 
 }
